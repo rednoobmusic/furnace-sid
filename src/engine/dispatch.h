@@ -567,6 +567,7 @@ struct SharedChannel {
  */
 class DivPitchTableManager {
   DivEngine* e;
+  DivPitchTable defaultPitchTable;
   DivPitchTable* samplePitchTable;
   size_t samplePitchTableLen;
 

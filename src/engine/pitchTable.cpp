@@ -24,8 +24,8 @@
 
 DivPitchTable* DivPitchTableManager::get(int sample) {
   if (e==NULL) return NULL;
-  if (!samplePitchTable) return NULL;
-  if (sample<0 || sample>=(int)e->song.sample.size()) return NULL;
+  if (!samplePitchTable) return &defaultPitchTable;
+  if (sample<0 || sample>=(int)e->song.sample.size()) return &defaultPitchTable;
   return &samplePitchTable[sample];
 }
 
@@ -37,6 +37,9 @@ size_t DivPitchTableManager::eSongSampleSize() {
 void DivPitchTableManager::updateSub(float tuning, double clock, double divider, int maximum, bool period, bool linear, int sample) {
   // should we recalculate the tables for all samples, or only one sample?
   if (sample==-1) {
+    // calculate the default table
+    defaultPitchTable.init(tuning,clock,divider,maximum,period,linear);
+
     for (size_t i=0; i<MIN(e->song.sample.size(),samplePitchTableLen); i++) {
       DivSample* s=e->song.sample[i];
       double off=(s->centerRate>=1)?((double)s->centerRate/e->getCenterRate()):1.0;
