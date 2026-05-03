@@ -30,26 +30,29 @@ void FurnaceGUI::drawRegView() {
   }
   if (!regViewOpen) return;
   if (ImGui::Begin("Register View",&regViewOpen,globalWinFlags,_("Register View"))) {
+    ImVec2 prevPos=ImGui::GetCursorPos();
+    ImVec2 topPos=ImGui::GetCursorPos();
+    topPos.x+=ImGui::GetContentRegionAvail().x-ImGui::CalcTextSize(ICON_FA_BARS).x;
+    topPos.y+=ImGui::GetScrollY();
+    if (ImGui::IsWindowHovered()) {
+      ImGui::SetCursorPos(topPos);
+      ImGui::TextUnformatted(ICON_FA_BARS "##regViewSettings");
+      if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayShort)) {
+        ImGui::SetTooltip(_("Register View settings"));
+      }
+      if (ImGui::IsItemClicked()) {
+        ImGui::OpenPopup("regViewSettingsPopup");
+      }
+      ImGui::SetCursorPos(prevPos);
+    }
+    if (ImGui::BeginPopup("regViewSettingsPopup")) {
+      if (ImGui::InputInt(_("Bytes per column##RegViewColumns"),&regViewColumns,1,4)) {
+        if (regViewColumns<1) regViewColumns=1;
+        if (regViewColumns>64) regViewColumns=64;
+      }
+      ImGui::EndPopup();
+    }
     for (int i=0; i<e->song.systemLen; i++) {
-      if (ImGui::IsWindowHovered()) {
-        ImGui::TextUnformatted(ICON_FA_BARS "##regViewSettings");
-        if (ImGui::IsItemHovered(ImGuiHoveredFlags_DelayShort)) {
-          ImGui::SetTooltip(_("Register View settings"));
-        }
-        if (ImGui::IsItemClicked()) {
-          ImGui::OpenPopup("regViewSettingsPopup");
-        }
-        ImGui::SameLine();
-      }
-      if (ImGui::BeginPopup("regViewSettingsPopup")) {
-        if (i==0) {
-          if (ImGui::InputInt(_("Bytes per column##RegViewColumns"),&regViewColumns,1,4)) {
-            if (regViewColumns<1) regViewColumns=1;
-            if (regViewColumns>64) regViewColumns=64;
-          }
-        }
-        ImGui::EndPopup();
-      }
       ImGui::Text("%d. %s",i+1,getSystemName(e->song.system[i]));
       int size=0;
       int depth=8;
