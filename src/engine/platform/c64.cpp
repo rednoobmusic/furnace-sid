@@ -955,6 +955,8 @@ void DivPlatformC64::setFlags(const DivConfig& flags) {
     }
     fakeCutTable[i]=c;
   }
+
+  notifyPitchTable();
 }
 
 void DivPlatformC64::setCoreQuality(unsigned char q) {
