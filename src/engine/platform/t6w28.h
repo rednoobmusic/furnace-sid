@@ -44,6 +44,7 @@ class DivPlatformT6W28: public DivDispatch {
     QueuedWrite(unsigned char a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,256> writes;
+  DivPitchTable tonePitchTable, noisePitchTable;
   unsigned char lastPan;
 
   int cycles, curChan, delay;

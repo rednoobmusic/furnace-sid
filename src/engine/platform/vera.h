@@ -52,6 +52,7 @@ class DivPlatformVERA: public DivDispatch {
     DivDispatchOscBuffer* oscBuf[17];
     bool isMuted[17];
     unsigned char regPool[69];
+    DivPitchTable pitchTable;
     struct VERA_PSG* psg;
     struct VERA_PCM* pcm;
     int lastCenterRate;

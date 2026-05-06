@@ -111,6 +111,7 @@ class DivPlatformX1_010: public DivDispatch, public vgsound_emu_mem_intf {
   bool stereo=false;
   unsigned char* sampleMem;
   size_t sampleMemLen;
+  DivPitchTable pitchTable;
   x1_010_core x1_010;
 
   bool isBanked=false;

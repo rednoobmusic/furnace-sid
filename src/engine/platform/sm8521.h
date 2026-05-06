@@ -52,6 +52,7 @@ class DivPlatformSM8521: public DivDispatch {
     QueuedWrite(unsigned short a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,128> writes;
+  DivPitchTable pitchTable;
 
   bool antiClickEnabled;
   int coreQuality, lastOut;

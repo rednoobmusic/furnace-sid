@@ -35,6 +35,7 @@ class DivPlatformVIC20: public DivDispatch {
   };
   Channel chan[4];
   DivDispatchOscBuffer* oscBuf[4];
+  DivPitchTable pitchTable;
   bool isMuted[4];
   bool hasWaveWrite;
   bool filterOff;

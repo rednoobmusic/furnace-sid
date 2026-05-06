@@ -42,6 +42,7 @@ class DivPlatformTED: public DivDispatch {
     QueuedWrite(unsigned char a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,64> writes;
+  DivPitchTable pitchTable;
 
   struct plus4_sound_s ted;
   unsigned char vol;

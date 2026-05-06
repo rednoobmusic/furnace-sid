@@ -39,6 +39,7 @@ class DivPlatformPET: public DivDispatch {
   };
   Channel chan[1];
   DivDispatchOscBuffer* oscBuf;
+  DivPitchTable pitchTable;
   bool isMuted;
 
   unsigned char regPool[16];

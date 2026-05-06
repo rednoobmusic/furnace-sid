@@ -35,6 +35,7 @@ class DivPlatformZXBeeperQuadTone: public DivDispatch {
   };
   Channel chan[5];
   DivDispatchOscBuffer* oscBuf[5];
+  DivPitchTable pitchTable;
   bool isMuted[5];
   bool noHiss;
   bool deHisser[8];

@@ -45,6 +45,7 @@ class DivPlatformSCV: public DivDispatch {
     QueuedWrite(unsigned char a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,512> writes;
+  DivPitchTable pitchTable;
 
   int curChan;
   int tempL[32];

@@ -48,6 +48,7 @@ class DivPlatformSAA1099: public DivDispatch {
       QueuedWrite(unsigned short a, unsigned char v): addr(a), val(v), addrOrVal(false) {}
     };
     FixedQueue<QueuedWrite,256> writes;
+    DivPitchTable pitchTable;
     int coreQuality;
     CSAASound* saa_saaSound;
     unsigned char regPool[32];

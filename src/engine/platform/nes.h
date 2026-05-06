@@ -51,6 +51,7 @@ class DivPlatformNES: public DivDispatch {
       QueuedWrite(unsigned short a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,128> writes;
+  DivPitchTable pitchTable;
   int dacPeriod, dacRate, dpcmPos;
   unsigned int dacPos, dacAntiClick;
   int dacSample;

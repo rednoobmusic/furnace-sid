@@ -34,6 +34,7 @@ class DivPlatformZXBeeper: public DivDispatch {
   Channel chan[6];
   DivDispatchOscBuffer* oscBuf[6];
   bool isMuted[6];
+  DivPitchTable pitchTable;
   unsigned char lastPan, ulaOut;
 
   int cycles, curChan, sOffTimer, delay, curSample, curSamplePeriod;

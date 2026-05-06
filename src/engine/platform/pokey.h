@@ -49,6 +49,7 @@ class DivPlatformPOKEY: public DivDispatch {
     QueuedWrite(unsigned char a, unsigned char v): addr(a), val(v) {}
   };
   FixedQueue<QueuedWrite,128> writes;
+  DivPitchTable pitchTable;
   unsigned char audctl, skctl;
   bool audctlChanged, skctlChanged;
   unsigned char oscBufDelay;

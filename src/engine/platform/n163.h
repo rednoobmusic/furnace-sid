@@ -60,6 +60,7 @@ class DivPlatformN163: public DivDispatch {
     QueuedWrite(unsigned char a, unsigned char v, unsigned char m=~0): addr(a), val(v), mask(m) {}
   };
   FixedQueue<QueuedWrite,2048> writes;
+  DivPitchTable pitchTable;
   unsigned char initChanMax;
   unsigned char chanMax;
   short loadWave, loadPos;

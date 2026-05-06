@@ -50,6 +50,7 @@ class DivPlatformPCSpeaker: public DivDispatch {
   };
   FixedQueue<RealQueueVal,2048> realQueue;
   std::mutex realQueueLock;
+  DivPitchTable pitchTable;
   bool isMuted[1];
   bool on, flip, lastOn, realOutEnabled, resetPhase, posToggle;
   int pos, oldOut, speakerType, beepFD, realOutMethod;

@@ -39,6 +39,7 @@ class DivPlatformPokeMini: public DivDispatch {
   unsigned short preset, pivot;
   unsigned char regPool[128];
   unsigned short elapsedMain;
+  DivPitchTable pitchTable;
 
   void rWrite(unsigned char addr, unsigned char val);
 

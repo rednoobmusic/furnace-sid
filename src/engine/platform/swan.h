@@ -56,6 +56,7 @@ class DivPlatformSwan: public DivDispatch {
   };
   FixedQueue<QueuedWrite,256> writes;
   FixedQueue<DivRegWrite,2048> postDACWrites;
+  DivPitchTable pitchTable;
 
   swan_sound_t ws;
   WSwan* ws_mdfn;

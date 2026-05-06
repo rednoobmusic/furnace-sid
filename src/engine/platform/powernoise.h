@@ -72,6 +72,7 @@ class DivPlatformPowerNoise: public DivDispatch {
   DivDispatchOscBuffer* oscBuf[4];
   bool isMuted[4];
   unsigned char regPool[32];
+  DivPitchTable pitchTable;
   
   int coreQuality;
   power_noise_t pn;
