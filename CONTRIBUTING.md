@@ -100,9 +100,11 @@ additional guidelines:
 
 **if you do so, your pull request will be closed.**
 
-force-pushing:
-1. allows you to insert malicious commits and (perhaps) go un-noticed
-2. makes life harder for other collaborators as now they have to merge their work and potentially differing commits, or reset --hard
+The reason we do not allow force-pushing is:
+1. force-pushing allows people to insert malicious commits and (perhaps) go un-noticed,
+2. force-pushing makes life harder for other collaborators as now they have to merge their work and potentially differing commits, or do `git reset --hard`,
+
+so please don't.
 
 ### Demo Songs
 
