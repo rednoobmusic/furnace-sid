@@ -310,6 +310,12 @@ void DivExportSID::run() {
     bool loopSeen=false;
     double frameAccum=0.0;
 
+    if (hasLoop && e->curOrder==loopOrder && e->curRow==loopRow) {
+      loopMarked=true;
+      loopByteOffset=0;
+      logAppendf("loop byte offset: %u (frame %d)",loopByteOffset,numFrames);
+    }
+
     while (!done) {
       if (e->nextTick(false,true) || !e->playing) {
         for (int j=0;j<e->song.systemLen;j++)
