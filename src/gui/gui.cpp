@@ -5776,7 +5776,7 @@ bool FurnaceGUI::loop() {
           if (curFileDialog==GUI_FILE_EXPORT_VGM) {
             checkExtension(".vgm");
           }
-          if (curFileDialog==GUI_FILE_EXPORT_ROM) {
+          if (curFileDialog==GUI_FILE_EXPORT_ROM && !romMultiFile) {
             checkExtension(romFilterExt.c_str());
           }
           if (curFileDialog==GUI_FILE_EXPORT_TEXT) {

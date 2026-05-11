@@ -586,6 +586,7 @@ class DivEngine {
   friend class DivExportZSM;
   friend class DivExportiPod;
   friend class DivExportGRUB;
+  friend class DivExportSID;
 
   public:
     DivSong song;

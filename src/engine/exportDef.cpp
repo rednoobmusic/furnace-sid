@@ -142,4 +142,27 @@ void DivEngine::registerROMExports() {
     },
     false, DIV_REQPOL_ANY
   );
+
+  romExportDefs[DIV_ROM_SID]=new DivROMExportDef(
+    "Commodore 64 SID (no PCM)", "Furnace contributors",
+    "PSID v2 register-dump export for C64 SID songs (6581/8580).\n"
+    "plays back via a built-in 6502 player stub.\n"
+    "use SID Digi (see below) for songs with PCM/digi.",
+    "SID file", ".sid",
+    {
+      DIV_SYSTEM_C64_6581, DIV_SYSTEM_C64_8580, DIV_SYSTEM_SID2, DIV_SYSTEM_SID3
+    },
+    false, DIV_REQPOL_LAX
+  );
+
+  romExportDefs[DIV_ROM_SID_PCM]=new DivROMExportDef(
+    "Commodore 64 SID (with PCM/digi)", "Furnace contributors",
+    "PSID v2 register-dump export for C64 songs that use PCM/digi samples.\n"
+    "includes C64_PCM chip. PCM data is captured as register writes.",
+    "SID file", ".sid",
+    {
+      DIV_SYSTEM_C64_PCM
+    },
+    false, DIV_REQPOL_LAX
+  );
 }
